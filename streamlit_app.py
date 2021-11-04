@@ -18,14 +18,14 @@ class ShareCalculator:
         if profit <= self.p:
             return profit * START_SHARE
         else:
-            return (self.p * START_SHARE) + (profit - self.p) * self.remainder_share_percent / 100
+            return self.p * START_SHARE + (profit - self.p) * self.remainder_share_percent / 100
 
     def print_equation(self) -> str:
         return """
         Формула расчета:
 
         если ПРИБЫЛЬ <= П, то S = 50 [%] * ПРИБЫЛЬ,
-        иначе S = ({start_share} * {p} {money_measure}) + (ПРИБЫЛЬ {money_measure} - {p} {money_measure}) * {share_percent}
+        иначе S = {start_share} * {p} {money_measure} + (ПРИБЫЛЬ {money_measure} - {p} {money_measure}) * {share_percent}
         """.format(start_share=START_SHARE, p=self.p, share_percent=self.remainder_share_percent / 100,
                    money_measure=MONEY_MEASURE)
 
